@@ -1,0 +1,16 @@
+require 'lispcalc'
+require 'minitest/autorun'
+
+class TestEval < Minitest::Test
+  def test_eval_with_single_list
+    assert_equal 3, Lispcalc.eval('(+ 1 2)')
+  end
+
+  def test_eval_with_nested_lists
+    assert_equal 28, Lispcalc.eval('(+ (* 2 3) (- 18 4) (/ 24 3))')
+  end
+
+  def test_set_and_use_variables
+    assert_equal 110, Lispcalc.eval('(do (>x 10) (>y 11) (* x y))')
+  end
+end
