@@ -10,6 +10,12 @@ Gem::Specification.new do |s|
   s.homepage     = 'https://github.com/vteromero/lispcalc'
   s.license      = 'MIT'
 
+  # Workaround to make the Homepage link show up on RubyGems.org
+  # https://github.com/rubygems/rubygems.org/issues/4924#issuecomment-2813179185
+  s.metadata     = {
+    'homepage_uri' => s.homepage
+  }
+
   s.required_ruby_version = '>= 2.7.0'
 
   s.files        = Dir['lib/**/*', 'LICENSE', 'README.md']
