@@ -96,6 +96,29 @@ class TestFunctions < Minitest::Test
     assert_equal('expecting all arguments to be BigDecimal', error.message)
   end
 
+  def test_power
+    functions = Lispcalc::Functions.new(Lispcalc::Context.new)
+    assert_equal 8.to_d, functions.^(2.to_d, 3.to_d)
+    assert_equal 2.to_d, functions.^(4.to_d, 0.5.to_d)
+    assert_equal 1.to_d, functions.^(2.to_d, 0.to_d)
+  end
+
+  def test_power_with_not_bigdecimal_base
+    functions = Lispcalc::Functions.new(Lispcalc::Context.new)
+    error = assert_raises(ArgumentError) do
+      functions.^(2, 2.to_d)
+    end
+    assert_equal("expecting 'base' to be BigDecimal", error.message)
+  end
+
+  def test_power_with_not_bigdecimal_index
+    functions = Lispcalc::Functions.new(Lispcalc::Context.new)
+    error = assert_raises(ArgumentError) do
+      functions.^(2.to_d, 2)
+    end
+    assert_equal("expecting 'index' to be BigDecimal", error.message)
+  end
+
   def test_do
     functions = Lispcalc::Functions.new(Lispcalc::Context.new)
     assert_equal 3, functions.do(1, 2, 3)

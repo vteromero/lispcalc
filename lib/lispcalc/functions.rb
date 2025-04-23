@@ -20,6 +20,13 @@ module Lispcalc
       arithmetic_op(:/, args)
     end
 
+    def ^(base, index)
+      raise ArgumentError, "expecting 'base' to be BigDecimal" unless base.instance_of?(BigDecimal)
+      raise ArgumentError, "expecting 'index' to be BigDecimal" unless index.instance_of?(BigDecimal)
+
+      base**index
+    end
+
     def do(*args)
       args.last unless args.empty?
     end

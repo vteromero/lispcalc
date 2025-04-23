@@ -13,4 +13,8 @@ class TestEval < Minitest::Test
   def test_set_and_use_variables
     assert_equal 110, Lispcalc.eval('(do (>x 10) (>y 11) (* x y))')
   end
+
+  def test_powers
+    assert_equal 7.to_d, Lispcalc.eval('(+ (^ 2 2) (^ 2 1) (^ 2 0))')
+  end
 end

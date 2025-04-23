@@ -4,7 +4,7 @@ module Lispcalc
     OPEN_PAREN = /\A\(/.freeze
     CLOSE_PAREN = /\A\)/.freeze
     NUMBER = /\A[+-]?([0-9]*[.])?[0-9]+/.freeze
-    SYMBOL = /\A[+\-*\/>a-zA-Z][+\-*\/>a-zA-Z0-9]*/.freeze # TODO: review this regexp
+    SYMBOL = /\A[+\-*\/>^a-zA-Z][+\-*\/>a-zA-Z0-9]*/.freeze # TODO: review this regexp
 
     def initialize(input)
       @input = input
