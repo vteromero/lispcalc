@@ -27,6 +27,12 @@ module Lispcalc
       base**index
     end
 
+    def sqrt(x)
+      raise ArgumentError, 'expecting a BigDecimal' unless x.instance_of?(BigDecimal)
+
+      Math.sqrt(x).to_d
+    end
+
     def do(*args)
       args.last unless args.empty?
     end

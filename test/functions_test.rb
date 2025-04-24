@@ -119,6 +119,19 @@ class TestFunctions < Minitest::Test
     assert_equal("expecting 'index' to be BigDecimal", error.message)
   end
 
+  def test_sqrt
+    functions = Lispcalc::Functions.new(Lispcalc::Context.new)
+    assert_equal 5.to_d, functions.sqrt(25.to_d)
+  end
+
+  def test_sqrt_with_a_not_bigdecimal_value
+    functions = Lispcalc::Functions.new(Lispcalc::Context.new)
+    error = assert_raises(ArgumentError) do
+      functions.sqrt(4)
+    end
+    assert_equal('expecting a BigDecimal', error.message)
+  end
+
   def test_do
     functions = Lispcalc::Functions.new(Lispcalc::Context.new)
     assert_equal 3, functions.do(1, 2, 3)
