@@ -21,16 +21,27 @@ module Lispcalc
     end
 
     def ^(base, index)
-      raise ArgumentError, "expecting 'base' to be BigDecimal" unless base.instance_of?(BigDecimal)
-      raise ArgumentError, "expecting 'index' to be BigDecimal" unless index.instance_of?(BigDecimal)
-
       base**index
     end
 
     def sqrt(x)
-      raise ArgumentError, 'expecting a BigDecimal' unless x.instance_of?(BigDecimal)
-
       Math.sqrt(x).to_d
+    end
+
+    def log(base, x)
+      Math.log(x, base).to_d
+    end
+
+    def log10(x)
+      Math.log10(x).to_d
+    end
+
+    def log2(x)
+      Math.log2(x).to_d
+    end
+
+    def ln(x)
+      log(Math::E, x)
     end
 
     def do(*args)
@@ -41,7 +52,6 @@ module Lispcalc
 
     def arithmetic_op(op, args)
       raise ArgumentError, "expecting at least 2 arguments, receiving #{args.size}" unless args.size >= 2
-      raise ArgumentError, 'expecting all arguments to be BigDecimal' unless args.all?(BigDecimal)
 
       args.inject(op)
     end

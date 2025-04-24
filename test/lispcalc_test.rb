@@ -17,4 +17,8 @@ class TestEval < Minitest::Test
   def test_powers
     assert_equal 7.to_d, Lispcalc.eval('(+ (^ 2 2) (^ 2 1) (^ 2 0))')
   end
+
+  def test_logs
+    assert_equal 12.to_d, Lispcalc.eval('(+ (log10 100) (log2 32) (ln (^ e 5)))')
+  end
 end
