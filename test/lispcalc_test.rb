@@ -21,4 +21,8 @@ class TestEval < Minitest::Test
   def test_logs
     assert_equal 12.to_d, Lispcalc.eval('(+ (log10 100) (log2 32) (ln (^ e 5)))')
   end
+
+  def test_trig
+    assert_equal BigDecimal('-1'), Lispcalc.eval('(+ (cos pi) (sin 0) (tan 0))')
+  end
 end

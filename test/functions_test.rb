@@ -96,6 +96,36 @@ class TestFunctions < Minitest::Test
     assert_equal 2.to_d, functions.ln(Math::E**2)
   end
 
+  def test_sin
+    functions = Lispcalc::Functions.new(Lispcalc::Context.new)
+    assert_equal 1.to_d, functions.sin(Math::PI / 2.to_d)
+  end
+
+  def test_cos
+    functions = Lispcalc::Functions.new(Lispcalc::Context.new)
+    assert_equal 1.to_d, functions.cos(0.to_d)
+  end
+
+  def test_tan
+    functions = Lispcalc::Functions.new(Lispcalc::Context.new)
+    assert_equal 0.to_d, functions.tan(0.to_d)
+  end
+
+  def test_asin
+    functions = Lispcalc::Functions.new(Lispcalc::Context.new)
+    assert_equal (Math::PI / 2.0).to_d, functions.asin(1.to_d)
+  end
+
+  def test_acos
+    functions = Lispcalc::Functions.new(Lispcalc::Context.new)
+    assert_equal 0.to_d, functions.acos(1.to_d)
+  end
+
+  def test_atan
+    functions = Lispcalc::Functions.new(Lispcalc::Context.new)
+    assert_equal 0.to_d, functions.atan(0.to_d)
+  end
+
   def test_do
     functions = Lispcalc::Functions.new(Lispcalc::Context.new)
     assert_equal 3, functions.do(1, 2, 3)

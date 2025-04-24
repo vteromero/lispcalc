@@ -44,6 +44,30 @@ module Lispcalc
       log(Math::E, x)
     end
 
+    def sin(x)
+      Math.sin(x).to_d
+    end
+
+    def cos(x)
+      Math.cos(x).to_d
+    end
+
+    def tan(x)
+      Math.tan(x).to_d
+    end
+
+    def asin(x)
+      Math.asin(x).to_d
+    end
+
+    def acos(x)
+      Math.acos(x).to_d
+    end
+
+    def atan(x)
+      Math.atan(x).to_d
+    end
+
     def do(*args)
       args.last unless args.empty?
     end
