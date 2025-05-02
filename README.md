@@ -42,9 +42,11 @@ irb(main):012>       (/ x y)))').to_s('F')
 - [x] **Constants**: There are 2 available constants: `pi` and `e`, which hold the values of the corresponding mathematical constants. Unlike variables, you cannot change the value of a constant.
 - [x] **Sequencing** (`(do expr1 expr2 ...)`): Evaluate each expression from left to right, returning the final value.
 - [x] **Arithmetic operations** (`+`, `-`, `*`, `/`)
-- [ ] **Powers, roots and logarithms** (`^`, `^2`, `sqrt`, `log`, `log2`, `log10`, `ln`)
-- [ ] **Trigonometric functions** (`sin`, `cos`, `tan`, etc.)
-- [ ] **Thread macros** (`->`, `->>`)
+- [x] **Powers** (`^`, `sq`)
+- [x] **Roots** (`sqrt`, `cbrt`)
+- [x] **Logarithms** (`log`, `log2`, `log10`, `ln`)
+- [x] **Trigonometric functions** (`sin`, `cos`, `tan`, `asin`, `acos`, `atan`)
+- [ ] **Clojure-style thread macros** (`->`, `->>`) ??
 
 ## Why?
 
