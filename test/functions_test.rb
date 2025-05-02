@@ -125,6 +125,21 @@ class TestFunctions < Minitest::Test
     assert_equal(64, result)
   end
 
+  def test_sq
+    functions = Lispcalc::Functions.new(Lispcalc::Context.new)
+    result = functions.sq(12)
+    assert_instance_of(BigDecimal, result)
+    assert_equal(144, result)
+  end
+
+  def test_sq_with_symbol
+    ctx = Lispcalc::Context.new({ x: 6.to_d })
+    functions = Lispcalc::Functions.new(ctx)
+    result = functions.sq(:x)
+    assert_instance_of(BigDecimal, result)
+    assert_equal(36, result)
+  end
+
   def test_sqrt
     functions = Lispcalc::Functions.new(Lispcalc::Context.new)
     result = functions.sqrt(25)

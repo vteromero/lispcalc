@@ -18,6 +18,10 @@ class TestEval < Minitest::Test
     assert_equal 7.to_d, Lispcalc.eval('(+ (^ 2 2) (^ 2 1) (^ 2 0))')
   end
 
+  def test_square
+    assert_equal 25.to_d, Lispcalc.eval('(+ (sq 3) (sq 4))')
+  end
+
   def test_roots
     assert_equal 12.to_d, Lispcalc.eval('(+ (sqrt 64) (cbrt 64))')
   end

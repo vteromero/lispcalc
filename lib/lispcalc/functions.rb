@@ -24,6 +24,10 @@ module Lispcalc
       resolve_symbol(base).to_d ** resolve_symbol(index).to_d
     end
 
+    def sq(x)
+      resolve_symbol(x).to_d ** 2.to_d
+    end
+
     def sqrt(x)
       Math.sqrt(resolve_symbol(x)).to_d
     end
