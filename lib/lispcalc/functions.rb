@@ -28,6 +28,10 @@ module Lispcalc
       Math.sqrt(resolve_symbol(x)).to_d
     end
 
+    def cbrt(x)
+      Math.cbrt(resolve_symbol(x)).to_d
+    end
+
     def log(base, x)
       Math.log(resolve_symbol(x), resolve_symbol(base)).to_d
     end

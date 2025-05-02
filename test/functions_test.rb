@@ -140,6 +140,21 @@ class TestFunctions < Minitest::Test
     assert_equal(6, result)
   end
 
+  def test_cbrt
+    functions = Lispcalc::Functions.new(Lispcalc::Context.new)
+    result = functions.cbrt(27)
+    assert_instance_of(BigDecimal, result)
+    assert_equal(3, result)
+  end
+
+  def test_cbrt_with_symbol
+    ctx = Lispcalc::Context.new({ x: 64.to_d })
+    functions = Lispcalc::Functions.new(ctx)
+    result = functions.cbrt(:x)
+    assert_instance_of(BigDecimal, result)
+    assert_equal(4, result)
+  end
+
   def test_log
     functions = Lispcalc::Functions.new(Lispcalc::Context.new)
     result = functions.log(2.5, 15.625)
