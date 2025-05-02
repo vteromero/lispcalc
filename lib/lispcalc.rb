@@ -12,7 +12,7 @@ module Lispcalc
     def eval(input, ctx = Context.new)
       tokens = Lexer.tokenize(input)
       forms = Parser.new(tokens).parse
-      Interpreter.new(ctx).eval(forms)
+      Interpreter.new(ctx).eval_list(forms)
     end
   end
 end

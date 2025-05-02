@@ -23,6 +23,19 @@ class TestInterpreter < Minitest::Test
   def test_eval_setting_and_using_variables
     interpreter = Lispcalc::Interpreter.new
     assert_equal(
+      100,
+      interpreter.eval(
+        [:do,
+         [:set, :x, 10.to_d],
+         [:set, :y, :x],
+         [:*, :x, :y]]
+      )
+    )
+  end
+
+  def test_eval_setting_and_using_variables_using_shortcut
+    interpreter = Lispcalc::Interpreter.new
+    assert_equal(
       110,
       interpreter.eval(
         [:do,
@@ -33,26 +46,26 @@ class TestInterpreter < Minitest::Test
     )
   end
 
-  def test_eval_raises_error_if_argument_is_not_an_array
+  def test_eval_list_raises_error_if_argument_is_not_an_array
     interpreter = Lispcalc::Interpreter.new
     error = assert_raises(ArgumentError) do
-      interpreter.eval(:foo)
+      interpreter.eval_list(:foo)
     end
     assert_equal 'expecting an instance of Array', error.message
   end
 
-  def test_eval_raises_error_if_list_is_empty
+  def test_eval_list_raises_error_if_list_is_empty
     interpreter = Lispcalc::Interpreter.new
     error = assert_raises(Lispcalc::SyntaxError) do
-      interpreter.eval([])
+      interpreter.eval_list([])
     end
     assert_equal 'empty list', error.message
   end
 
-  def test_eval_raises_error_if_the_first_element_of_a_list_is_not_a_symbol
+  def test_eval_list_raises_error_if_the_first_element_of_a_list_is_not_a_symbol
     interpreter = Lispcalc::Interpreter.new
     error = assert_raises(Lispcalc::SyntaxError) do
-      interpreter.eval([100.to_d])
+      interpreter.eval_list([100.to_d])
     end
     assert_equal 'the first element of a list must be a symbol', error.message
   end
